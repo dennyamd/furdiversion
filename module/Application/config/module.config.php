@@ -32,6 +32,16 @@ return array(
                     ),
                 ),
             ),
+            'contact' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/contact',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Contact',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -86,7 +96,8 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Home' => Controller\HomeController::class,
-            'Application\Controller\About' => Controller\AboutController::class
+            'Application\Controller\About' => Controller\AboutController::class,
+            'Application\Controller\Contact' => Controller\ContactController::class
         ),
     ),
     'view_manager' => array(
@@ -97,7 +108,7 @@ return array(
         'exception_template'       => 'error/index',
         'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
+            'application/home/index'  => __DIR__ . '/../view/application/home/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
