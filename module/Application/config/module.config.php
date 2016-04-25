@@ -42,6 +42,16 @@ return array(
                     ),
                 ),
             ),
+            'faq' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/contact',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Faq',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -98,7 +108,9 @@ return array(
         'invokables' => array(
             'Application\Controller\Home' => Controller\HomeController::class,
             'Application\Controller\About' => Controller\AboutController::class,
-            'Application\Controller\Contact' => Controller\ContactController::class
+            'Application\Controller\Contact' => Controller\ContactController::class,
+            'Application\Controller\Faq' => Controller\FaqController::class
+
         ),
     ),
     'view_manager' => array(
@@ -134,6 +146,10 @@ return array(
             array(
                 'label' => 'About',
                 'route' => 'about'
+            ),
+            array(
+                'label' => 'FAQ',
+                'route' => 'faq'
             ),
             array(
                 'label' => 'Commission',
