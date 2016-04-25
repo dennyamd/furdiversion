@@ -37,13 +37,13 @@
                     <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Fur Diversion') ?></a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-                        <li class="inactive"><a href="<?php echo $this->url('about') ?>"><?php echo $this->translate('About') ?></a></li>
-                        <li class="inactive"><a href="<?php echo $this->url('commission') ?>"><?php echo $this->translate('Commission') ?></a></li>
-                        <li class="inactive"><a href="<?php echo $this->url('contact') ?>"><?php echo $this->translate('Contact Us') ?></a></li>
-
-                    </ul>
+                    <?php // <-- Update this !!
+                    echo $this->navigation('navigation')
+                              ->menu()
+                              ->setMinDepth(0)
+                              ->setMaxDepth(0)
+                              ->setUlClass('nav navbar-nav');
+                    ?>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>

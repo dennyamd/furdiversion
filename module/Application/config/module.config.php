@@ -81,6 +81,7 @@ return array(
         ),
         'factories' => array(
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
+            'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
         ),
     ),
     'translator' => array(
@@ -123,4 +124,26 @@ return array(
             ),
         ),
     ),
+
+    'navigation' => array(
+        'default' => array(
+            array(
+                'label' => 'Home',
+                'route' => 'home',
+            ),
+            array(
+                'label' => 'About',
+                'route' => 'about'
+            ),
+            array(
+                'label' => 'Commission',
+                'route' => 'commission'
+            ),
+            array(
+                'label' => 'Contact',
+                'route' => 'contact'
+            ),
+        ),
+    ),
+
 );
