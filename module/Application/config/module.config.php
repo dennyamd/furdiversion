@@ -17,7 +17,17 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => 'Application\Controller\Home',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'about' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/about',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\About',
                         'action'     => 'index',
                     ),
                 ),
@@ -75,7 +85,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => Controller\IndexController::class
+            'Application\Controller\Home' => Controller\HomeController::class,
+            'Application\Controller\About' => Controller\AboutController::class
         ),
     ),
     'view_manager' => array(
