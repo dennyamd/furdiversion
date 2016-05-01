@@ -15,6 +15,13 @@ use Commission\Model\CommissionInputFilter;
 class CommissionController extends AbstractActionController
 {
 
+    protected $repository;
+
+    public function setRepository($repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function indexAction()
     {
         return array();
