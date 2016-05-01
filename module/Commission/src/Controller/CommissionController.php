@@ -10,7 +10,7 @@ namespace Commission\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Commission\Form\CommissionForm;
-use Commission\Model\CommissionInputFilter;
+use Commission\Input\CommissionInputFilter;
 use Commission\Repository\CommissionRepository;
 
 class CommissionController extends AbstractActionController

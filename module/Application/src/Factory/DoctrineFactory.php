@@ -21,7 +21,7 @@ class DoctrineFactory implements FactoryInterface
         $doctrineConfig = $config['doctrine'];
         $paths = $doctrineConfig['paths'];
         $isDevMode = $doctrineConfig['is_dev_mode'];
-        $dbParams = $doctrineConfig['params'];
+        $dbParams = $doctrineConfig['connection'];
 
         $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
 

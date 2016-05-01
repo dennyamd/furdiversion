@@ -51,7 +51,7 @@ return array(
                     )
                 )
             ),
-
+            
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -92,10 +92,10 @@ return array(
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
             'doctrine' => Factory\DoctrineFactory::class
-            
         )
-
-    ),
+        
+    )
+    ,
     'translator' => array(
         'locale' => 'en_US',
         'translation_file_patterns' => array(
@@ -107,18 +107,18 @@ return array(
         )
     ),
     'controllers' => array(
-        'factories' => array(
+        'factories' => array()
 
-        ),
+        ,
         'invokables' => array(
             'Application\Controller\Home' => Controller\HomeController::class,
             'Application\Controller\About' => Controller\AboutController::class,
             'Application\Controller\Contact' => Controller\ContactController::class,
             'Application\Controller\Faq' => Controller\FaqController::class
-
         )
-
-    ),
+        
+    )
+    ,
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions' => true,
@@ -135,14 +135,14 @@ return array(
             __DIR__ . '/../view'
         )
     ),
-
+    
     // Placeholder for console routes
     'console' => array(
         'router' => array(
             'routes' => array()
         )
     ),
-
+    
     'navigation' => array(
         'default' => array(
             array(
@@ -165,20 +165,6 @@ return array(
                 'label' => 'Contact',
                 'route' => 'contact'
             )
-        )
-    ),
-
-    // Doctrine Config
-    'doctrine' => array(
-        'paths' => array(
-            "module/Commission/Entity"
-        ),
-        'is_dev_mode' => false,
-        'params' => array(
-            'driver' => 'pdo_mysql',
-            'user' => 'furry',
-            'password' => 'furry',
-            'dbname' => 'commission'
         )
     )
 );

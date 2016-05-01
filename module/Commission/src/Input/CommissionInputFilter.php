@@ -1,5 +1,5 @@
 <?php
-namespace Commission\Model;
+namespace Commission\Input;
 
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\InputFilterAwareInterface;
@@ -8,21 +8,7 @@ use Zend\InputFilter\InputFilterInterface;
 class CommissionInputFilter implements InputFilterAwareInterface
 {
 
-    public $id;
-
-    public $artist;
-
-    public $title;
-
     protected $inputFilter;
-
-    public function exchangeArray($data)
-    {
-        $this->id = (isset($data['id'])) ? $data['id'] : null;
-        $this->artist = (isset($data['artist'])) ? $data['artist'] : null;
-        $this->title = (isset($data['title'])) ? $data['title'] : null;
-    }
-    
     // Add content to these methods:
     public function setInputFilter(InputFilterInterface $inputFilter)
     {

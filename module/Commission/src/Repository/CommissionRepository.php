@@ -1,6 +1,7 @@
 <?php
 namespace Commission\Repository;
 
+use Commission\Entity\Commission;
 class CommissionRepository
 {
 
@@ -16,9 +17,8 @@ class CommissionRepository
         $this->em = $em;
     }
 
-    function saveCommission()
-    {
-        print 'FUCK YOU';
+    function saveCommission(Commission $x)
+    {die ("HI");
         exit();
     }
 }
