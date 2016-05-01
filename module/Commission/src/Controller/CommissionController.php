@@ -12,6 +12,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Commission\Form\CommissionForm;
 use Commission\Input\CommissionInputFilter;
 use Commission\Repository\CommissionRepository;
+use Commission\Output\CommissionOutput;
 
 class CommissionController extends AbstractActionController
 {
@@ -41,8 +42,10 @@ class CommissionController extends AbstractActionController
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $inputFilter->exchangeArray($form->getData());
-                $this->repository->saveCommission($inputFilter);
+                $output = new CommissionOutput();
+
+                $commission = $output->getCommission($form->getData());
+                $this->repository->saveCommission($commission);
 
                 // Redirect to list of albums
                 return $this->redirect()->toRoute('home');

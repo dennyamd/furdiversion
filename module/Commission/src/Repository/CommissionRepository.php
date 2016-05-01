@@ -2,9 +2,14 @@
 namespace Commission\Repository;
 
 use Commission\Entity\Commission;
+use Doctrine\ORM\EntityManager;
 class CommissionRepository
 {
 
+    /**
+     *
+     * @var EntityManager
+     */
     protected $em;
 
     function getRepository()
@@ -17,8 +22,10 @@ class CommissionRepository
         $this->em = $em;
     }
 
-    function saveCommission(Commission $x)
-    {die ("HI");
-        exit();
+    function saveCommission(Commission $entity)
+    {
+        $this->em->persist($entity);
+        $this->em->flush();
+        return $entity->getId();
     }
 }

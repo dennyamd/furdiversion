@@ -4,11 +4,13 @@ namespace Commission\Input;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
+use Commission\Entity\Commission;
 
 class CommissionInputFilter implements InputFilterAwareInterface
 {
 
     protected $inputFilter;
+
     // Add content to these methods:
     public function setInputFilter(InputFilterInterface $inputFilter)
     {
@@ -19,7 +21,7 @@ class CommissionInputFilter implements InputFilterAwareInterface
     {
         if (! $this->inputFilter) {
             $inputFilter = new InputFilter();
-            
+
             $inputFilter->add(array(
                 'name' => 'id',
                 'required' => true,
@@ -29,7 +31,7 @@ class CommissionInputFilter implements InputFilterAwareInterface
                     )
                 )
             ));
-            
+
             $inputFilter->add(array(
                 'name' => 'artist',
                 'required' => true,
@@ -52,7 +54,7 @@ class CommissionInputFilter implements InputFilterAwareInterface
                     )
                 )
             ));
-            
+
             $inputFilter->add(array(
                 'name' => 'title',
                 'required' => true,
@@ -75,10 +77,10 @@ class CommissionInputFilter implements InputFilterAwareInterface
                     )
                 )
             ));
-            
+
             $this->inputFilter = $inputFilter;
         }
-        
+
         return $this->inputFilter;
     }
 }
