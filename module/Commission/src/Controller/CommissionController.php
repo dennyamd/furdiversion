@@ -11,13 +11,14 @@ namespace Commission\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Commission\Form\CommissionForm;
 use Commission\Model\CommissionInputFilter;
+use Commission\Repository\CommissionRepository;
 
 class CommissionController extends AbstractActionController
 {
 
     protected $repository;
 
-    public function setRepository($repository)
+    public function setRepository(CommissionRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -41,7 +42,7 @@ class CommissionController extends AbstractActionController
 
             if ($form->isValid()) {
                 $inputFilter->exchangeArray($form->getData());
-                $this->getAlbumTable()->saveAlbum($inputFilter);
+                $this->repository->saveCommission($inputFilter);
 
                 // Redirect to list of albums
                 return $this->redirect()->toRoute('home');

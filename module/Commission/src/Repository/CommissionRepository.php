@@ -8,8 +8,17 @@ class CommissionRepository
 
     function getRepository()
     {
-        if (! $this->em)
-            $this->em = $this->serviceLocator->get('doctrine');
         return $this->em;
+    }
+
+    function setRepository($em)
+    {
+        $this->em = $em;
+    }
+
+    function saveCommission()
+    {
+        print 'FUCK YOU';
+        exit();
     }
 }

@@ -92,6 +92,7 @@ return array(
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
             'doctrine' => Factory\DoctrineFactory::class
+            
         )
 
     ),
