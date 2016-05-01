@@ -18,15 +18,16 @@ class CommissionController extends AbstractActionController
     public function indexAction()
     {
         return array();
-    } // Add content to this method:
+    }
 
     public function addAction()
     {
         $form = new CommissionForm();
-        $form->get('submit')->setValue('Add');
 
         $request = $this->getRequest();
+
         if ($request->isPost()) {
+
             $inputFilter = new CommissionInputFilter();
             $form->setInputFilter($inputFilter->getInputFilter());
             $form->setData($request->getPost());
@@ -39,6 +40,7 @@ class CommissionController extends AbstractActionController
                 return $this->redirect()->toRoute('home');
             }
         }
+
         return array(
             'form' => $form
         );
