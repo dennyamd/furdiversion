@@ -6,22 +6,41 @@
  * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
-
 namespace Commission\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Commission\Form\CommissionForm;
+use Commission\Model\CommissionInputFilter;
 
 class CommissionController extends AbstractActionController
 {
+
     public function indexAction()
     {
         return array();
-    }
+    } // Add content to this method:
 
-    public function fooAction()
+    public function addAction()
     {
-        // This shows the :controller and :action parameters in default route
-        // are working when you browse to /commission/commission/foo
-        return array();
+        $form = new CommissionForm();
+        $form->get('submit')->setValue('Add');
+
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $inputFilter = new CommissionInputFilter();
+            $form->setInputFilter($inputFilter->getInputFilter());
+            $form->setData($request->getPost());
+
+            if ($form->isValid()) {
+                $inputFilter->exchangeArray($form->getData());
+                $this->getAlbumTable()->saveAlbum($inputFilter);
+
+                // Redirect to list of albums
+                return $this->redirect()->toRoute('home');
+            }
+        }
+        return array(
+            'form' => $form
+        );
     }
 }
