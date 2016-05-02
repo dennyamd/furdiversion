@@ -12,8 +12,8 @@ class CommissionOutput
     function getCommission(array $data)
     {
         $commission = new Commission();
-        $commission->setArtist($data['artist']);
-        $commission->setTitle($data['title']);
+        $commission->setName($data['name']);
+        $commission->setEmail($data['email']);
 
         return $commission;
     }

@@ -33,7 +33,7 @@ class CommissionInputFilter implements InputFilterAwareInterface
             ));
 
             $inputFilter->add(array(
-                'name' => 'artist',
+                'name' => 'name',
                 'required' => true,
                 'filters' => array(
                     array(
@@ -56,7 +56,7 @@ class CommissionInputFilter implements InputFilterAwareInterface
             ));
 
             $inputFilter->add(array(
-                'name' => 'title',
+                'name' => 'email',
                 'required' => true,
                 'filters' => array(
                     array(
@@ -68,12 +68,7 @@ class CommissionInputFilter implements InputFilterAwareInterface
                 ),
                 'validators' => array(
                     array(
-                        'name' => 'StringLength',
-                        'options' => array(
-                            'encoding' => 'UTF-8',
-                            'min' => 1,
-                            'max' => 100
-                        )
+                        'name' => \Zend\Validator\EmailAddress::class
                     )
                 )
             ));

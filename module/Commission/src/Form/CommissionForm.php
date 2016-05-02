@@ -15,17 +15,17 @@ class CommissionForm extends Form
             'type' => 'Hidden'
         ));
         $this->add(array(
-            'name' => 'title',
+            'name' => 'name',
             'type' => 'Text',
             'options' => array(
-                'label' => 'Title'
+                'label' => 'First Name: '
             )
         ));
         $this->add(array(
-            'name' => 'artist',
-            'type' => 'Text',
+            'name' => 'email',
+            'type' => 'Zend\Form\Element\Email',
             'options' => array(
-                'label' => 'Artist'
+                'label' => 'Email: '
             )
         ));
         $this->add(array(

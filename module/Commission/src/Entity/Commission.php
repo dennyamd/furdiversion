@@ -19,14 +19,14 @@ class Commission
      *
      * @var string
      */
-    private $artist;
+    private $name;
 
     /**
      * @Column(type="string")
      *
      * @var string
      */
-    private $title;
+    private $email;
 
     /**
      *
@@ -39,20 +39,20 @@ class Commission
 
     /**
      *
-     * @return the $artist
+     * @return the $name
      */
-    public function getArtist()
+    public function getName()
     {
-        return $this->artist;
+        return $this->name;
     }
 
     /**
      *
-     * @return the $title
+     * @return the $email
      */
-    public function getTitle()
+    public function getEmail()
     {
-        return $this->title;
+        return $this->email;
     }
 
     /**
@@ -66,19 +66,19 @@ class Commission
 
     /**
      *
-     * @param string $artist
+     * @param string $name
      */
-    public function setArtist($artist)
+    public function setName($name)
     {
-        $this->artist = $artist;
+        $this->name = $name;
     }
 
     /**
      *
-     * @param string $title
+     * @param string $email
      */
-    public function setTitle($title)
+    public function setEmail($email)
     {
-        $this->title = $title;
+        $this->email = $email;
     }
 }
