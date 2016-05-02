@@ -1,10 +1,11 @@
 <?php
 // module/Album/view/album/album/add.phtml:
-$title = 'Add new album';
+$title = 'Enter Your Commission Request';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <?php
+$form = $this->form;
 $form->setAttribute('action', $this->url(null, array(
     'controller' => 'commission',
     'action' => 'add'
@@ -22,10 +23,12 @@ $form->prepare();
 		<tr>
 			<td><?php echo $this->formLabel($form->get('name')); ?></td>
 			<td><?php echo $this->formText($form->get('name')); ?></td>
+			<td><?php echo $this->formElementErrors($form->get('name')); ?></td>
 		</tr>
 		<tr>
 			<td><?php echo $this->formLabel($form->get('email')); ?></td>
 			<td><?php echo $this->formEmail($form->get('email')); ?></td>
+			<td><?php echo $this->formElementErrors($form->get('email')); ?></td>
 		</tr>
 		<tr>
 			<td></td>
