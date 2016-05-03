@@ -51,7 +51,7 @@ return array(
                     )
                 )
             ),
-            
+
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -93,7 +93,7 @@ return array(
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
             'doctrine' => Factory\DoctrineFactory::class
         )
-        
+
     )
     ,
     'translator' => array(
@@ -116,7 +116,7 @@ return array(
             'Application\Controller\Contact' => Controller\ContactController::class,
             'Application\Controller\Faq' => Controller\FaqController::class
         )
-        
+
     )
     ,
     'view_manager' => array(
@@ -135,14 +135,14 @@ return array(
             __DIR__ . '/../view'
         )
     ),
-    
+
     // Placeholder for console routes
     'console' => array(
         'router' => array(
             'routes' => array()
         )
     ),
-    
+
     'navigation' => array(
         'default' => array(
             array(

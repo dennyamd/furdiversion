@@ -7,6 +7,16 @@ return array(
     ),
     'router' => array(
         'routes' => array(
+            'thank_you' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route' => '/thank_you',
+                    'defaults' => array(
+                        'controller' => 'Commission\Controller\Commission',
+                        'action' => 'thank_you'
+                    )
+                )
+            ),
             'commission' => array(
                 'type' => 'Literal',
                 'options' => array(
@@ -14,9 +24,6 @@ return array(
                     // Change this to something specific to your module
                     'route' => '/commission',
                     'defaults' => array(
-
-                        // Change this value to reflect the namespace in which
-                        // the controllers for your module are found
                         '__NAMESPACE__' => 'Commission\Controller',
                         'controller' => 'Commission',
                         'action' => 'index'

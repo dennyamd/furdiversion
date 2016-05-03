@@ -29,6 +29,11 @@ class CommissionController extends AbstractActionController
         return array();
     }
 
+    public function thankYouAction()
+    {
+        return array();
+    }
+
     public function addAction()
     {
         $form = new CommissionForm();
@@ -48,7 +53,7 @@ class CommissionController extends AbstractActionController
                 $this->repository->saveCommission($commission);
 
                 // Redirect to list of albums
-                return $this->redirect()->toRoute('home');
+                return $this->redirect()->toRoute('thank_you');
             }
         }
 

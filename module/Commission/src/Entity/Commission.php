@@ -29,6 +29,56 @@ class Commission
     private $email;
 
     /**
+     * @Column(type="string")
+     *
+     * @var string
+     */
+    private $species;
+
+    /**
+     * @Column(type="string")
+     *
+     * @var string
+     */
+    private $request;
+
+    /**
+     *
+     * @return the $species
+     */
+    public function getSpecies()
+    {
+        return $this->species;
+    }
+
+    /**
+     *
+     * @return the $request
+     */
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    /**
+     *
+     * @param string $species
+     */
+    public function setSpecies($species)
+    {
+        $this->species = $species;
+    }
+
+    /**
+     *
+     * @param string $request
+     */
+    public function setRequest($request)
+    {
+        $this->request = $request;
+    }
+
+    /**
      *
      * @return the $id
      */
