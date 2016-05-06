@@ -31,6 +31,9 @@ class CommissionController extends AbstractActionController
 
     public function thankYouAction()
     {
+        $request = $this->getRequest();
+        var_dump($request->getQuery('id'));
+        exit();
         return array();
     }
 
@@ -50,10 +53,12 @@ class CommissionController extends AbstractActionController
                 $output = new CommissionOutput();
 
                 $commission = $output->getCommission($form->getData());
-                $this->repository->saveCommission($commission);
+                $id = $this->repository->saveCommission($commission);
 
                 // Redirect to list of albums
-                return $this->redirect()->toRoute('thank_you');
+                return $this->redirect()->toRoute('thank_you', array(
+                    'id' => $id
+                ));
             }
         }
 
