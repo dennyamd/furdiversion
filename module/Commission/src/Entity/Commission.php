@@ -40,7 +40,32 @@ class Commission
      *
      * @var string
      */
+    private $suitType;
+
+    /**
+     * @Column(type="string")
+     *
+     * @var string
+     */
     private $request;
+
+    /**
+     *
+     * @return the $suitType
+     */
+    public function getSuitType()
+    {
+        return $this->suitType;
+    }
+
+    /**
+     *
+     * @param string $suitType
+     */
+    public function setSuitType($suitType)
+    {
+        $this->suitType = $suitType;
+    }
 
     /**
      *

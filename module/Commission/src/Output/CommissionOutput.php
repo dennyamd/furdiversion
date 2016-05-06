@@ -14,8 +14,9 @@ class CommissionOutput
         $commission = new Commission();
         $commission->setName($data['name']);
         $commission->setEmail($data['email']);
-        $commission->setRequest($data['request']);
         $commission->setSpecies($data['species']);
+        $commission->setSuitType($data['suit_type']);
+        $commission->setRequest($data['request']);
 
 
         return $commission;

@@ -34,6 +34,7 @@ class CommissionForm extends Form
                 'placeholder' => 'Email'
             )
         ));
+
         $this->add(array(
             'name' => 'species',
             'type' => 'Zend\Form\Element\Text',
@@ -42,6 +43,28 @@ class CommissionForm extends Form
             ),
             'attributes' => array(
                 'placeholder' => 'Character Species'
+            )
+        ));
+
+        $this->add(array(
+            'name' => 'suit_type',
+            'type' => 'Zend\Form\Element\Radio',
+            'options' => array(
+                'label' => 'Suit Type: ',
+                'value_options' => array(
+                    array(
+                        'value' => 'partial',
+                        'label' => 'Full Suit',
+                        'selected' => true
+                    ),
+                    array(
+                        'value' => 'full_suit',
+                        'label' => 'Partial'
+                    )
+                )
+            ),
+            'attributes' => array(
+                'placeholder' => 'Suit Type'
             )
         ));
 

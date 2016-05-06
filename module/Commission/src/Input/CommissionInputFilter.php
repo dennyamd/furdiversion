@@ -73,6 +73,24 @@ class CommissionInputFilter implements InputFilterAwareInterface
                 )
             ));
 
+            $inputFilter->add(array(
+                'name' => 'species',
+                'required' => true,
+                'filters' => array(
+                    array(
+                        'name' => 'StripTags'
+                    ),
+                    array(
+                        'name' => 'StringTrim'
+                    )
+                )
+            ));
+
+            $inputFilter->add(array(
+                'name' => 'suit_type',
+                'required' => true
+            ));
+
             $this->inputFilter = $inputFilter;
         }
 
