@@ -15,7 +15,7 @@ class CommissionOutput
         $commission->setName($data['name']);
         $commission->setEmail($data['email']);
         $commission->setSpecies($data['species']);
-        $commission->setSuitType($data['suit_type']);
+        $commission->setSuitType($data['suit-type']);
         $commission->setRequest($data['request']);
 
 

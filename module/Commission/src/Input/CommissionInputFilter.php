@@ -87,7 +87,7 @@ class CommissionInputFilter implements InputFilterAwareInterface
             ));
 
             $inputFilter->add(array(
-                'name' => 'suit_type',
+                'name' => 'suit-type',
                 'required' => true
             ));
 

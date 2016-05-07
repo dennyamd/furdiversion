@@ -47,7 +47,7 @@ class CommissionForm extends Form
         ));
 
         $this->add(array(
-            'name' => 'suit_type',
+            'name' => 'suit-type',
             'type' => 'Zend\Form\Element\Radio',
             'options' => array(
                 'label' => 'Suit Type: ',
@@ -58,7 +58,7 @@ class CommissionForm extends Form
                         'selected' => true
                     ),
                     array(
-                        'value' => 'full_suit',
+                        'value' => 'full-suit',
                         'label' => 'Partial'
                     )
                 )
@@ -78,6 +78,18 @@ class CommissionForm extends Form
                 'rows' => 10,
                 'cols' => 60,
                 'placeholder' => 'Describe Your Commission Request'
+            )
+        ));
+
+        // File Input
+        $this->add(array(
+            'name' => 'character-ref',
+            'type' => 'Zend\Form\Element\File',
+            'options' => array(
+                'label' => 'Character Ref: '
+            ),
+            'attributes' => array(
+                'id' => 'character-ref'
             )
         ));
 
