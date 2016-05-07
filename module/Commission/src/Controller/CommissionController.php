@@ -13,6 +13,8 @@ use Commission\Form\CommissionForm;
 use Commission\Input\CommissionInputFilter;
 use Commission\Repository\CommissionRepository;
 use Commission\Output\CommissionOutput;
+use Zend\View\Model\ViewModel;
+use Zend\Stdlib\Parameters;
 
 class CommissionController extends AbstractActionController
 {
@@ -55,10 +57,11 @@ class CommissionController extends AbstractActionController
                 $commission = $output->getCommission($form->getData());
                 $id = $this->repository->saveCommission($commission);
 
-                // Redirect to list of albums
-                return $this->redirect()->toRoute('thank_you', array(
-                    'id' => $id
-                ));
+                $view = new ViewModel();
+                $view->setTemplate('commission/commission/thank_you');
+                $view->setVariables($request->getPost()
+                    ->getArrayCopy());
+                return $view;
             }
         }
 

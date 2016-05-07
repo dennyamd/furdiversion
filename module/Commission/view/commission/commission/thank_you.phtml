@@ -1,1 +1,16 @@
-THANKS!
+<?php
+$name = $this->escapehtml($this->name);
+$species = $this->escapehtml($this->species);
+$request = $this->escapehtml($this->request);
+?>
+
+<h1>THANKS <?=$name?>!</h1>
+
+<p>We got your stupid little order!</p>
+
+<p>
+	<strong>Your species:</strong><?=$species?></p>
+<p>
+	<strong>Order Description:</strong>
+</p>
+<p><?=$request?></p>
