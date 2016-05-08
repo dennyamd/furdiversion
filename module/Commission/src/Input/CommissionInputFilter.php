@@ -5,6 +5,7 @@ use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
 use Commission\Entity\Commission;
+use Zend\InputFilter\FileInput;
 
 class CommissionInputFilter implements InputFilterAwareInterface
 {
@@ -90,6 +91,15 @@ class CommissionInputFilter implements InputFilterAwareInterface
                 'name' => 'suit-type',
                 'required' => true
             ));
+
+            // File Input
+            $fileInput = new FileInput('character-ref');
+            $fileInput->setRequired(true);
+            $fileInput->getFilterChain()->attachByName('filerenameupload', array(
+                'target' => './data/tmpuploads/character.png',
+                'randomize' => true
+            ));
+            $inputFilter->add($fileInput);
 
             $this->inputFilter = $inputFilter;
         }

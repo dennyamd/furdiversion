@@ -15,8 +15,15 @@ if (php_sapi_name() === 'cli-server') {
 }
 
 // Setup autoloading
-//require 'init_autoloader.php';
+// require 'init_autoloader.php';
 require 'vendor/autoload.php';
+
+function dump($data)
+{
+    print "<pre>";
+    print_r($data);
+    print "</pre>";
+}
 
 // Run the application!
 Zend\Mvc\Application::init(require 'config/application.config.php')->run();

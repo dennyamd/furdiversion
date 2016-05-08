@@ -47,7 +47,32 @@ class Commission
      *
      * @var string
      */
+    private $characterRef;
+
+    /**
+     * @Column(type="string")
+     *
+     * @var string
+     */
     private $request;
+
+    /**
+     *
+     * @return the $characterRef
+     */
+    public function getCharacterRef()
+    {
+        return $this->characterRef;
+    }
+
+    /**
+     *
+     * @param string $characterRef
+     */
+    public function setCharacterRef($characterRef)
+    {
+        $this->characterRef = $characterRef;
+    }
 
     /**
      *

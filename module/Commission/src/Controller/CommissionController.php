@@ -10,11 +10,9 @@ namespace Commission\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Commission\Form\CommissionForm;
-use Commission\Input\CommissionInputFilter;
 use Commission\Repository\CommissionRepository;
 use Commission\Output\CommissionOutput;
 use Zend\View\Model\ViewModel;
-use Zend\Stdlib\Parameters;
 
 class CommissionController extends AbstractActionController
 {
@@ -42,31 +40,36 @@ class CommissionController extends AbstractActionController
     public function addAction()
     {
         $form = new CommissionForm();
+        $tempFile = null;
 
-        $request = $this->getRequest();
+        $prg = $this->fileprg($form);
 
-        if ($request->isPost()) {
-
-            $inputFilter = new CommissionInputFilter();
-            $form->setInputFilter($inputFilter->getInputFilter());
-            $form->setData($request->getPost());
-
+        if ($prg instanceof \Zend\Http\PhpEnvironment\Response) {
+            return $prg; // Return PRG redirect response
+        } elseif (is_array($prg)) {
             if ($form->isValid()) {
                 $output = new CommissionOutput();
 
-                $commission = $output->getCommission($form->getData());
+                $commission = $output->getCommission($prg);
                 $id = $this->repository->saveCommission($commission);
 
                 $view = new ViewModel();
                 $view->setTemplate('commission/commission/thank_you');
-                $view->setVariables($request->getPost()
-                    ->getArrayCopy());
+                $view->setVariables($prg);
                 return $view;
+            } else {
+                // Form not valid, but file uploads might be valid...
+                // Get the temporary file information to show the user in the view
+                $fileErrors = $form->get('character-ref')->getMessages();
+                if (empty($fileErrors)) {
+                    $tempFile = $form->get('character-ref')->getValue();
+                }
             }
         }
-
         return array(
-            'form' => $form
+            'form' => $form,
+
+            'characterRefFile' => $tempFile
         );
     }
 }
