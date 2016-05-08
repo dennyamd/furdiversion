@@ -13,6 +13,7 @@ use Commission\Form\CommissionForm;
 use Commission\Repository\CommissionRepository;
 use Commission\Output\CommissionOutput;
 use Zend\View\Model\ViewModel;
+use Commission\Input\CommissionInputFilter;
 
 class CommissionController extends AbstractActionController
 {
@@ -47,6 +48,7 @@ class CommissionController extends AbstractActionController
         if ($prg instanceof \Zend\Http\PhpEnvironment\Response) {
             return $prg; // Return PRG redirect response
         } elseif (is_array($prg)) {
+            $form->setInputFilter((new CommissionInputFilter())->getInputFilter());
             if ($form->isValid()) {
                 $output = new CommissionOutput();
 

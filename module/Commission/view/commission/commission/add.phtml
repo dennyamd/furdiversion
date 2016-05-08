@@ -42,16 +42,19 @@ $form->prepare();
         </tr>
         <tr>
             <td><?php echo $this->formLabel($form->get('character-ref')); ?></td>
-            <td><?php echo $this->formFile($form->get('character-ref')); ?>
+            <td><?php echo $this->formFile($form->get('character-ref')); ?></td>
+            <td>
                 <?php echo $this->formElementErrors($form->get('character-ref')); ?>
+                <?php echo $this->escapehtml($this->characterRefFile['name']); ?>
             </td>
-            <td><?php echo $this->escapehtml($this->characterRefFile['name']); ?></td>
-
         </tr>
         <tr>
             <td><?php echo $this->formLabel($form->get('request')); ?></td>
-            <td colspan="2"><?php echo $this->formTextArea($form->get('request')); ?></td>
-            <td><?php echo $this->formElementErrors($form->get('request')); ?></td>
+            <td colspan="2">
+                <?php echo $this->formTextArea($form->get('request')); ?>
+            </td>
+            <td>
+                <?php echo $this->formElementErrors($form->get('request')); ?></td>
         </tr>
         <tr>
             <td></td>
