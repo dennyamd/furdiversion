@@ -84,6 +84,16 @@ class CommissionInputFilter implements InputFilterAwareInterface
                     array(
                         'name' => 'StringTrim'
                     )
+                ),
+                'validators' => array(
+                    array(
+                        'name' => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min' => 1,
+                            'max' => 100
+                        )
+                    )
                 )
             ));
 
@@ -92,11 +102,33 @@ class CommissionInputFilter implements InputFilterAwareInterface
                 'required' => true
             ));
 
+            $inputFilter->add(array(
+                'name' => 'request',
+                'required' => true,
+                'filters' => array(
+                    array(
+                        'name' => 'StripTags'
+                    ),
+                    array(
+                        'name' => 'StringTrim'
+                    )
+                ),
+                'validators' => array(
+                    array(
+                        'name' => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min' => 1,
+                        )
+                    )
+                )
+            ));
+
             // File Input
             $fileInput = new FileInput('character-ref');
-            $fileInput->setRequired(true);
+            $fileInput->setRequired(false);
             $fileInput->getFilterChain()->attachByName('filerenameupload', array(
-                'target' => './data/tmpuploads/character.png',
+                'target' => './data/tmpuploads/character.jpg',
                 'randomize' => true
             ));
             $inputFilter->add($fileInput);
