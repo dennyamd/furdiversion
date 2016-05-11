@@ -6,7 +6,7 @@ use Zend\File\Transfer\Adapter\Http;
 use Zend\Validator\File\FilesSize;
 use Zend\Filter\File\Rename;
 use Zend\Validator\AbstractValidator;
-
+//http://stackoverflow.com/questions/11718809/how-do-i-do-file-uploading-in-zend-framework-2
 class ImageValidator extends AbstractValidator
 {
 

@@ -51,15 +51,31 @@ class CommissionForm extends Form
             'type' => 'Zend\Form\Element\Radio',
             'options' => array(
                 'label' => 'Suit Type: ',
+                'label_attributes' => array(
+
+                    'style' => 'display: block'
+                ),
                 'value_options' => array(
                     array(
-                        'value' => 'partial',
+                        'value' => 'full-suit',
                         'label' => 'Full Suit',
                         'selected' => true
                     ),
                     array(
-                        'value' => 'full-suit',
+                        'value' => 'partial',
                         'label' => 'Partial'
+                    ),
+                    array(
+                        'value' => 'head-only',
+                        'label' => 'Head Only'
+                    ),
+                    array(
+                        'value' => 'feet-paws',
+                        'label' => 'Feet Paws'
+                    ),
+                    array(
+                        'value' => 'custom',
+                        'label' => 'Custom (Describe)'
                     )
                 )
             ),
@@ -98,7 +114,7 @@ class CommissionForm extends Form
             'name' => 'submit',
             'type' => 'Submit',
             'attributes' => array(
-                'value' => 'Add',
+                'value' => 'Submit Quote',
                 'id' => 'submitbutton'
             )
         ));

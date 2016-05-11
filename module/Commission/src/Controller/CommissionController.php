@@ -41,18 +41,20 @@ class CommissionController extends AbstractActionController
     public function addAction()
     {
         $form = new CommissionForm();
+        $form->setInputFilter((new CommissionInputFilter())->getInputFilter());
         $tempFile = null;
 
         $prg = $this->fileprg($form);
 
         if ($prg instanceof \Zend\Http\PhpEnvironment\Response) {
-            return $prg; // Return PRG redirect response
+            // Return PRG redirect response
+            return $prg;
         } elseif (is_array($prg)) {
-            $form->setInputFilter((new CommissionInputFilter())->getInputFilter());
             if ($form->isValid()) {
+
                 $output = new CommissionOutput();
 
-                $commission = $output->getCommission($prg);
+                $commission = $output->getCommission($form->getData());
                 $id = $this->repository->saveCommission($commission);
 
                 $view = new ViewModel();
@@ -70,7 +72,6 @@ class CommissionController extends AbstractActionController
         }
         return array(
             'form' => $form,
-
             'characterRefFile' => $tempFile
         );
     }
