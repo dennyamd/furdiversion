@@ -13,10 +13,6 @@ class FileWork
      */
     function saveFile($id, array $data)
     {
-        // save the file
-        if ($data === null)
-            return; // nothing to do
-
         $filename = $data['tmp_name'];
         $type = $data['type'];
         $dir = "./data/character_refs/";

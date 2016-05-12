@@ -62,7 +62,7 @@ class CommissionController extends AbstractActionController
                 if (is_numeric($id) && is_array($data['character-ref']))
                     (new FileWork())->saveFile($id, $data['character-ref']);
 
-                (new Mail())->sendMail($data);
+                (new Mail())->sendMail($id, $data);
 
                 $view = new ViewModel();
                 $view->setTemplate('commission/commission/thank_you');

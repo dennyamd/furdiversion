@@ -7,10 +7,14 @@ use Commission\Entity\Commission;
 class Mail
 {
 
-    function sendMail(array $data)
+    function sendMail($id, array $data)
     {
         $mail = new Mail\Message();
-        $mail->setBody('This is the text of the email.' . $data['request']);
+
+        $text = "New Commission from {$id}.<br>\n";
+        $text .= "Request:  {$data['request']}.<br>\n";
+
+        $mail->setBody($text);
         $mail->setFrom('dennyamd@gmail.com', 'Fur Diversion');
         $mail->addTo($data['email'], $data['name']);
         $mail->setSubject('New FurDiversion Commission!');
@@ -19,5 +23,3 @@ class Mail
         $transport->send($mail);
     }
 }
-
-?>
