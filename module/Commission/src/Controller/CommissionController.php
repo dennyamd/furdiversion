@@ -15,6 +15,7 @@ use Commission\Output\CommissionOutput;
 use Zend\View\Model\ViewModel;
 use Commission\Input\CommissionInputFilter;
 use Commission\File\FileWork;
+use Commission\Mail\Mail;
 
 class CommissionController extends AbstractActionController
 {
@@ -59,6 +60,8 @@ class CommissionController extends AbstractActionController
                 $id = $this->repository->saveCommission($commission);
 
                 (new FileWork())->saveFile($id, $data['character-ref']);
+
+                (new Mail())->sendMail($data);
 
                 $view = new ViewModel();
                 $view->setTemplate('commission/commission/thank_you');
