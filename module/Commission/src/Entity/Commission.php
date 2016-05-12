@@ -43,7 +43,7 @@ class Commission
     private $suitType;
 
     /**
-     * @Column(type="string")
+     * @Column(type="string", nullable=true)
      *
      * @var string
      */

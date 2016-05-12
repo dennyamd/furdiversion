@@ -117,7 +117,7 @@ class ImageValidator extends AbstractValidator
             $this->error(self::FILE_NAME_ERROR);
             return false;
         }
-        
+
         $extension = pathinfo($fileName, PATHINFO_EXTENSION);
         if (! in_array($extension, $extensions)) {
             $this->error(self::FILE_EXTENSION_ERROR);

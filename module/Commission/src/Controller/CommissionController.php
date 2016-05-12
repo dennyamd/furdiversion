@@ -14,6 +14,7 @@ use Commission\Repository\CommissionRepository;
 use Commission\Output\CommissionOutput;
 use Zend\View\Model\ViewModel;
 use Commission\Input\CommissionInputFilter;
+use Commission\File\FileWork;
 
 class CommissionController extends AbstractActionController
 {
@@ -52,10 +53,12 @@ class CommissionController extends AbstractActionController
         } elseif (is_array($prg)) {
             if ($form->isValid()) {
 
-                $output = new CommissionOutput();
+                $data = $form->getData();
 
-                $commission = $output->getCommission($form->getData());
+                $commission = (new CommissionOutput())->getCommission($data);
                 $id = $this->repository->saveCommission($commission);
+
+                (new FileWork())->saveFile($id, $data['character-ref']);
 
                 $view = new ViewModel();
                 $view->setTemplate('commission/commission/thank_you');

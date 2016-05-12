@@ -11,10 +11,7 @@ class CommissionOutput
 
     function getCommission(array $data)
     {
-        //save the file
-
-
-
+        // save form data
         $commission = new Commission();
         $commission->setName($data['name']);
         $commission->setEmail($data['email']);
@@ -23,9 +20,7 @@ class CommissionOutput
         $commission->setCharacterRef($data['character-ref']['name']);
         $commission->setRequest($data['request']);
 
-
         return $commission;
-
     }
 }
 

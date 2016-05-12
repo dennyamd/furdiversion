@@ -3,6 +3,7 @@ namespace Commission\Repository;
 
 use Commission\Entity\Commission;
 use Doctrine\ORM\EntityManager;
+
 class CommissionRepository
 {
 
@@ -28,4 +29,5 @@ class CommissionRepository
         $this->em->flush();
         return $entity->getId();
     }
+
 }
