@@ -59,7 +59,8 @@ class CommissionController extends AbstractActionController
                 $commission = (new CommissionOutput())->getCommission($data);
                 $id = $this->repository->saveCommission($commission);
 
-                (new FileWork())->saveFile($id, $data['character-ref']);
+                if (is_numeric($id) && is_array($data['character-ref']))
+                    (new FileWork())->saveFile($id, $data['character-ref']);
 
                 (new Mail())->sendMail($data);
 
