@@ -29,7 +29,7 @@ return array(
                     'defaults' => array(
                         '__NAMESPACE__' => 'Commission\Controller',
                         'controller' => 'Commission',
-                        'action' => 'index'
+                        'action' => 'add'
                     )
                 ),
                 'may_terminate' => true,
