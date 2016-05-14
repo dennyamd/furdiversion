@@ -16,11 +16,12 @@ class FileWork
         $filename = $data['tmp_name'];
         $type = $data['type'];
         $dir = "./data/character_refs/";
-        $extension = preg_replace('/image\//', '', $type);
-        $destination = $dir . $id . '.' . $extension;
-
-        return rename($filename, $destination);
+        if (preg_match("/image\//", $type))
+        {
+            $extension = preg_replace('/image\//', '', $type);
+            $destination = $dir . $id . '.' . $extension;
+            return rename($filename, $destination);
+        }
+        else return false;  //not an image
     }
 }
-
-
