@@ -9,17 +9,29 @@ class Mail
 
     function sendMail($id, array $data)
     {
-        $mail = new Mail\Message();
-
-        $text = "New Commission from {$id}.<br>\n";
-        $text .= "Request:  {$data['request']}.<br>\n";
-
-        $mail->setBody($text);
-        $mail->setFrom('dennyamd@gmail.com', 'Fur Diversion');
-        $mail->addTo($data['email'], $data['name']);
-        $mail->setSubject('New FurDiversion Commission!');
-
+        $body = "New Commission from {$id}.
+        Request:  {$data['request']}
+        ";
         $transport = new Mail\Transport\Sendmail();
+
+        $mail = new Mail\Message();
+        $mail->setBody($body);
+        $mail->setFrom('service@furdiversion.net', 'Fur Diversion');
+        $mail->addTo($data['email'], $data['name']);
+        $mail->setSubject('New FurDiversion Commission from ' . $data['name'] . '!');
+        $transport->send($mail);
+
+        if ('service@furdiversion.net' == $data['email']) {
+            return;
+        }
+
+        // mail to me
+        $mail = new Mail\Message();
+        $mail->setBody($body);
+        $mail->setFrom('service@furdiversion.net', 'Fur Diversion');
+        $mail->addTo('service@furdiversion.net', 'Fur Diversion');
+        $mail->setSubject('New FurDiversion Commission from ' . $data['name'] . '!');
+
         $transport->send($mail);
     }
 }
