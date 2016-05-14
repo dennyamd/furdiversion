@@ -52,6 +52,14 @@ class CommissionInputFilter implements InputFilterAwareInterface
                         'min' => 1,
                         'max' => 100
                     )
+                ),
+                array(
+                    'name' => 'StringLength',
+                    'options' => array(
+                        'encoding' => 'UTF-8',
+                        'min' => 1,
+                        'max' => 100
+                    )
                 )
             )
         ));
@@ -115,10 +123,9 @@ class CommissionInputFilter implements InputFilterAwareInterface
             ),
             'validators' => array(
                 array(
-                    'name' => 'StringLength',
+                    'name' => 'Alpha',
                     'options' => array(
-                        'encoding' => 'UTF-8',
-                        'min' => 1
+                        'allowWhiteSpace' => true
                     )
                 )
             )
