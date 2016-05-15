@@ -44,7 +44,7 @@ return array(
             'faq' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/contact',
+                    'route' => '/faq',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Faq',
                         'action' => 'index'
