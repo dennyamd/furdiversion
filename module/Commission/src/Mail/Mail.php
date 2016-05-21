@@ -32,7 +32,7 @@ class Mail
         // mail to me
         $mail = new Mail\Message();
         $mail->setBody($body);
-        $mail->setFrom('service@furdiversion.net', 'Fur Diversion');
+        $mail->setFrom($data['email'], $data['name']);
         $mail->addTo('service@furdiversion.net', 'Fur Diversion');
         $mail->setSubject('New FurDiversion Commission from ' . $data['name'] . '!');
 
