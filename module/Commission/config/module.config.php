@@ -52,6 +52,7 @@ return array(
     'view_manager' => array(
         'template_path_stack' => array(
             'Commission' => __DIR__ . '/../view'
-        )
+        ),
+        'display_exceptions' => false
     )
 );
