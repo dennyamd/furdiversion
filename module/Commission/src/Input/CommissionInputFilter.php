@@ -120,14 +120,6 @@ class CommissionInputFilter implements InputFilterAwareInterface
                 array(
                     'name' => 'StringTrim'
                 )
-            ),
-            'validators' => array(
-                array(
-                    'name' => 'Alpha',
-                    'options' => array(
-                        'allowWhiteSpace' => true
-                    )
-                )
             )
         ));
 
