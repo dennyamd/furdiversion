@@ -15,7 +15,7 @@ use Commission\Output\CommissionOutput;
 use Zend\View\Model\ViewModel;
 use Commission\Input\CommissionInputFilter;
 use Commission\File\FileWork;
-use Commission\Mail\Mail;
+use Commission\Mail\CommissionMail;
 
 class CommissionController extends AbstractActionController
 {
@@ -62,7 +62,7 @@ class CommissionController extends AbstractActionController
                 if (is_numeric($id) && is_array($data['character-ref']))
                     (new FileWork())->saveFile($id, $data['character-ref']);
 
-                (new Mail())->sendMail($id, $data);
+                (new CommissionMail())->sendMail($id, $data);
 
                 $view = new ViewModel();
                 $view->setTemplate('commission/commission/thank_you');

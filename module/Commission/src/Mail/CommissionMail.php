@@ -4,7 +4,7 @@ namespace Commission\Mail;
 use Zend\Mail;
 use Commission\Entity\Commission;
 
-class Mail
+class CommissionMail
 {
 
     function sendMail($id, array $data)
