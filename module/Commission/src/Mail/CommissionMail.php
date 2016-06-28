@@ -32,9 +32,9 @@ class CommissionMail
         // mail to me
         $mail = new Mail\Message();
         $mail->setBody($body);
-        $mail->setFrom($data['email'], $data['name']);
+        $mail->setFrom('service@furdiversion.net');
         $mail->addTo('service@furdiversion.net', 'Fur Diversion');
-        $mail->setSubject('New FurDiversion Commission from ' . $data['name'] . '!');
+        $mail->setSubject('New FurDiversion Commission from ' . $data['email'] . ', ' . $data['name'] . '!');
 
         $transport->send($mail);
     }
